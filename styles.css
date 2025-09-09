@@ -1655,6 +1655,57 @@ nav {
   }
 }
 
+/* Mobile: stack cards vertically in one column */
+@media (max-width: 640px) {
+  .educators-grid {
+    display: grid;
+    grid-template-columns: 1fr;           /* single column */
+    gap: var(--space-12);
+    justify-items: center;                /* center the cards */
+  }
+
+  .educator-card {
+    aspect-ratio: auto;                   /* allow natural height for vertical content */
+    width: 100%;
+    max-width: 420px;                     /* comfortable readable width on mobile */
+    margin: 0;                            /* no extra outer margin needed */
+    transform: translateY(16px);          /* subtler initial offset */
+  }
+
+  .educator-card.reveal {
+    animation: fadeInUp 0.6s var(--ease-standard) forwards;
+  }
+
+  .educator-image .profile-photo,
+  .educator-card .profile-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-links {
+    gap: var(--space-10);
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Small phones: slightly tighter spacing */
+@media (max-width: 380px) {
+  .educator-card {
+    max-width: 360px;
+    padding: var(--space-12);
+  }
+  .educator-name {
+    font-size: var(--font-size-lg);
+  }
+  .educator-experience {
+    font-size: var(--font-size-base);
+  }
+}
+
 /* Contact Section */
 .contact {
   padding: 5rem var(--space-32);
