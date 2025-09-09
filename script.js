@@ -325,32 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Touch gesture support for mobile
-    let touchStartX = 0;
-    let touchStartY = 0;
-    
-    document.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-    });
-    
-    document.addEventListener('touchend', (e) => {
-        if (!touchStartX || !touchStartY) return;
-        
-        const touchEndX = e.changedTouches[0].clientX;
-        const touchEndY = e.changedTouches[0].clientY;
-        
-        const deltaX = touchStartX - touchEndX;
-        const deltaY = touchStartY - touchEndY;
-        
-        // Swipe down to toggle theme (mobile)
-        if (Math.abs(deltaY) > Math.abs(deltaX) && deltaY < -50) {
-            themeToggle.click();
-        }
-        
-        touchStartX = 0;
-        touchStartY = 0;
-    });
+
 
     // Performance monitoring
     const performanceObserver = new PerformanceObserver((list) => {
